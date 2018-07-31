@@ -34,13 +34,19 @@ func fingerprintKeys(keys []PublicKey) map[string]ssh.PublicKey {
 }
 
 type PublicKey struct {
-	Name        string `json:"name"`
-	Key         string `json:"key"`
+	// The name of the key
+	Name string `json:"name"`
+
+	// The base64 encoded public key
+	Key string `json:"key"`
+
+	// The fingerprint of the public key
 	Fingerprint string `json:"fingerprint"`
 }
 
 type User struct {
-	Keys []PublicKey `json:"keys"`
+	ID   bson.ObjectId `bson:"_id" json:"_id"`
+	Keys []PublicKey   `bson:"keys" json:"keys"`
 }
 
 type MongoConfig struct {
@@ -139,7 +145,7 @@ func main() {
 			entry := authorizedkey.AuthorizedKeyEntry{
 				KeyType: pk.Type(),
 				Key:     base64.StdEncoding.EncodeToString(pk.Marshal()),
-				Command: "/git-command",
+				Command: "/git-command " + user.ID.Hex(),
 				// Environment:       map[string]string{"foo": "bar"},
 				NoAgentForwarding: true,
 				NoX11Forwarding:   true,
