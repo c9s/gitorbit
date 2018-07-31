@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "c2X5toZDTb8B70ntjqfmAX2WNGs=",
+			"checksumSHA1": "mi3yJHxA/cvt5nTccQ9kSTvk7Dk=",
 			"path": "github.com/c9s/ssh-authorizedkey",
-			"revision": "5169347494389311409026bf7c3c9dd0cc4c7639",
-			"revisionTime": "2018-07-30T00:43:05Z"
+			"revision": "fafa5e75503e83bde50e2dabaddda765a16c99e2",
+			"revisionTime": "2018-07-31T01:11:26Z"
 		},
 		{
 			"checksumSHA1": "D5jVUTl7HrJrdH95IxfLeSZifKQ=",
@@ -23,6 +23,12 @@
 		{
 			"checksumSHA1": "05C/6F2zMBpmB50/FA3OeXbzVEA=",
 			"path": "github.com/linkernetworks/foundation/logger",
+			"revision": "2c3a871093e1486a54d56f2e38ed23b6908ac004",
+			"revisionTime": "2018-07-20T04:12:22Z"
+		},
+		{
+			"checksumSHA1": "bBKttDjHaaiu9XdHE9N2gdFA+0M=",
+			"path": "github.com/linkernetworks/foundation/service/mongo",
 			"revision": "2c3a871093e1486a54d56f2e38ed23b6908ac004",
 			"revisionTime": "2018-07-20T04:12:22Z"
 		},
