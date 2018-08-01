@@ -71,13 +71,13 @@ mongo mongodb://localhost:27018/git --eval "db.users.find({
 
 Build and Run the git server:
 
-```
+```sh
 make stop build run
 ```
 
 Add an entry in your .ssh/config:
 
-```sh
+```ssh
 Host git-server
     HostName localhost
     User git
