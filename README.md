@@ -104,7 +104,27 @@ git clone git@git-server:test.git
 
 ### Kubernetes
 
-Coming soon.
+Copy the config from the template:
+
+```
+cp -v config/default.json k8s.json
+```
+
+Configure your settings:
+
+```
+vim k8s.json
+```
+
+Create configmap object in your cluster:
+
+```
+kubectl create configmap git-server-config --from-file=authorized_keys.json=k8s.json
+```
+
+To be continued.
+
+
 
 ## License
 
