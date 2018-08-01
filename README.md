@@ -3,7 +3,9 @@
 ## Features
 
 - MongoDB-based ssh public key authentication.
+- Multiple ssh public key support for each user.
 - Kubernetes deployment support.
+- Support permission customization.
 
 ## Install
 
