@@ -1,0 +1,12 @@
+{
+    "mongo": {
+        "url": "mongodb://mongo:27017/git"
+    },
+    "logger": {
+        "dir": "/var/log/git",
+        "level": "debug",
+        "maxAge": "720h",
+        "suffixPattern": ".%Y%m%d",
+        "linkName": "access_log"
+    }
+}

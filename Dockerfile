@@ -49,7 +49,7 @@ COPY --from=src /go/bin/authorized-keys /authorized-keys
 COPY git-command.sh /git-command
 
 RUN mkdir -p /var/log/git && chown -R git:git /var/log/git
-ARG CONFIG=config/test.json
+ARG CONFIG=config/docker.json
 COPY $CONFIG /etc/ssh/authorized_keys.json
 
 # sshd_config file is edited for enable access key and disable access password
