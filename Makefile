@@ -4,9 +4,9 @@ SSH_FLAGS := -D -e
 DOCKER_NETWORK := docker
 
 
-GIT_SERVER_IMAGE := yoanlin/git-server
+GIT_SERVER_IMAGE := yoanlin/gitorbit
 GIT_SERVER_HOSTPORT := 2022
-GIT_SERVER_CONTAINER_NAME := git_server
+GIT_SERVER_CONTAINER_NAME := gitorbit
 
 CID_FILE := .container_id
 
