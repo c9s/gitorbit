@@ -75,3 +75,10 @@ git clone git@git-server:test.git
 
 Coming soon.
 
+## License
+
+MIT License
+
+## Author
+
+Yo-An Lin <yoanlin93@gmail.com>
