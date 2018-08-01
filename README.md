@@ -1,8 +1,30 @@
 # GitServer
 
-## Setup
+## Setup MongoDB-based Authentication
 
-Create a network for sharing the mongodb server:
+By default, the git-server image includes a config file:
+
+```
+{
+    "mongo": {
+        "url": "mongodb://mongo:27017/git"
+    },
+    "logger": {
+        "dir": "/var/log/git",
+        "level": "debug",
+        "maxAge": "720h",
+        "suffixPattern": ".%Y%m%d",
+        "linkName": "access_log"
+    }
+}
+```
+
+Which uses `mongodb://mongo:27017/git` as the connection string for the mongo client.
+
+And so you will need to create a mongodb container instance with the name `mongo`, so that
+the client can connect to your mongodb server.
+
+First, you need to create a network for sharing the mongodb network connection:
 
 ```
 docker network create docker
