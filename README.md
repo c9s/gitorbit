@@ -1,6 +1,13 @@
 # GitServer
 
-## Setup MongoDB-based Authentication
+## Features
+
+- MongoDB-based ssh public key authentication.
+- Kubernetes deployment support.
+
+## Install
+
+### Setup with Docker 
 
 By default, the git-server image includes a config file:
 
@@ -93,7 +100,7 @@ Now you can try git clone:
 git clone git@git-server:test.git
 ```
 
-## Kubernetes
+### Kubernetes
 
 Coming soon.
 
