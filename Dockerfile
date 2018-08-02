@@ -50,14 +50,16 @@ COPY git-command.sh /git-command
 
 RUN mkdir -p /var/log/git && chown -R git:git /var/log/git
 ARG CONFIG=config/docker.json
-COPY $CONFIG /etc/ssh/authorized_keys.json
+
+RUN mkdir -p /etc/gitorbit
+COPY $CONFIG /etc/gitorbit/authorized_keys.json
 
 # sshd_config file is edited for enable access key and disable access password
 # COPY sshd_config /etc/ssh/sshd_config
 COPY start.sh /start.sh
 
 # %f token passes the fingerprint SHA256:wi76P4RkpL9gWJx/p1Jr35r0Ri0/50NFPI4cVbT/4vc
-RUN sed -i -e "/AuthorizedKeysCommand none/c\AuthorizedKeysCommand /authorized-keys -config /etc/ssh/authorized_keys.json %f" /etc/ssh/sshd_config
+RUN sed -i -e "/AuthorizedKeysCommand none/c\AuthorizedKeysCommand /authorized-keys -config /etc/gitorbit/authorized_keys.json %f" /etc/ssh/sshd_config
 RUN sed -i -e "/AuthorizedKeysCommandUser /c\AuthorizedKeysCommandUser git" /etc/ssh/sshd_config
 
 # Disable password authentication
@@ -68,7 +70,7 @@ RUN sed -i -e "/#PubkeyAuthentication/c\PubkeyAuthentication yes" /etc/ssh/sshd_
 
 # Enable password-locked account
 # see also https://unix.stackexchange.com/questions/193066/how-to-unlock-account-for-public-key-ssh-authorization-but-not-for-password-aut
-RUN sed -i -e "/#UsePAM/c\UsePAM yes" /etc/ssh/sshd_config
+# RUN sed -i -e "/#UsePAM/c\UsePAM yes" /etc/ssh/sshd_config
 
 RUN sed -i -e "/#LogLevel /c\LogLevel DEBUG" /etc/ssh/sshd_config
 
